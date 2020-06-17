@@ -23,7 +23,7 @@ const router = () => {
                     <Route exact path={"/forgot_password"}>
                         <ForgotPassword/>
                     </Route>
-                    <Route exact path={"/"}>
+                    <Route path={"/"}>
                         <Sidebar />
                         <div className="flex-grow-1">
                             <div className="d-flex flex-column h-100">
