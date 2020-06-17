@@ -101,10 +101,10 @@ function App({open, toogle_open}) {
                     </div>
 
                     <div className="form-group row">
-                        <div className="col-6">
+                        <div className="col-6 pr-2">
                             <SelectPicker placeholder="Tempat Lahir" data={kota} className="w-100"/>
                         </div>
-                        <div className="col pl-0">
+                        <div className="col pl-2">
                             <DatePicker placeholder="Tanggal Lahir" className="w-100"/>
                         </div>
                     </div>
@@ -116,10 +116,10 @@ function App({open, toogle_open}) {
                     </div>
 
                     <div className="form-group row">
-                        <div className="col">
+                        <div className="col pr-2">
                             <SelectPicker placeholder="Province" data={province} className="w-100"/>
                         </div>
-                        <div className="col">
+                        <div className="col pl-2">
                             <SelectPicker placeholder="Sector" data={sector} className="w-100"/>
                         </div>
                     </div>
