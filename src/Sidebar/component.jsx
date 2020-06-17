@@ -26,7 +26,7 @@ const Link = props => <Nav.Item componentClass={MyLink} {...props} />;
 
 const SubLink = props => <Dropdown.Item componentClass={MyLink} {...props} />;
 
-function App({open, toogle_open}) {
+function App({open, toogle_open, logout}) {
     return (
         <Sidebar
             className="d-flex flex-column h-100vh"
@@ -99,7 +99,7 @@ function App({open, toogle_open}) {
                             renderTitle={children => {
                             return <Icon icon="cog" className="h-56px w-56px text-center lh-56px"/>;
                         }}>
-                            <SubLink to={"/login"}>Sign out</SubLink>
+                            <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
                         </Dropdown>
                     </Nav>
 

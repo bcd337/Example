@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import App from './component'
-import {toogle_open} from './actions'
+import {toogle_open, logout} from './actions'
 
 const mapStateToProps = (state) => ({
     open: state.sidebar.open,
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     toogle_open,
+    logout
 }
 
 export default connect(

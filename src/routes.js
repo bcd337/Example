@@ -5,12 +5,14 @@ import Data from './Data'
 import Login from './Login'
 import Register from './Register'
 import ForgotPassword from './ForgotPassword'
-import {Route, Switch, BrowserRouter as Router} from "react-router-dom"
+import {Route, Switch, Router} from "react-router-dom"
+import LoginRoute from './Route'
+import history from "./history"
 
 const router = () => { 
 
     return (
-        <Router>
+        <Router history={history}>
             <div className="d-flex">
 
                 <Switch>
@@ -32,12 +34,12 @@ const router = () => {
                                 </div>
                                 <div className="flex-grow-1">
                                     <Switch>
-                                        <Route exact path={"/"}>
+                                        <LoginRoute exact path={"/"}>
                                             <Home/>
-                                        </Route>
-                                        <Route exact path={"/data"}>
+                                        </LoginRoute>
+                                        <LoginRoute exact path={"/data"}>
                                             <Data/>
-                                        </Route>
+                                        </LoginRoute>
                                     </Switch>
                                 </div>
                             </div>
