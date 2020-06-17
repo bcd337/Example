@@ -32,8 +32,8 @@ function App({open, toogle_open}) {
             <div className="centering shift h-100" >
                 <div className="mt-n5" style={{minWidth: '26rem'}}>
                     <div className="mb-4">
-                        <h3>Masuk</h3>
-                        <div>Silakan masuk untuk menikmati layanan yang tersedia di sembako</div>
+                        <h3>Lupa Password</h3>
+                        <div>Silakan masukan email anda</div>
                     </div>
                     
                     <div className="form-group row">
@@ -41,23 +41,15 @@ function App({open, toogle_open}) {
                             <Input placeholder="Alamat email"/>
                         </div>
                     </div>
-                    <div className="form-group row">
-                        <div className="col">
-                            <Input placeholder="Kata sandi"/>
-                        </div>
-                    </div>
 
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <Link className="d-block text-decoration-none" to={"/forgot_password"}>
-                                Lupa kata sandi?
-                            </Link>
-                            <Link className="d-block text-decoration-none mt-1" to={"/register"}>
-                                Daftar Baru?
+                            <Link className="d-block" to="/login">
+                                Sudah terdaftar?
                             </Link>
                         </div>
                         <Link className="d-block" to="/">
-                            <Button className="bg-warning text-dark">Masuk <i className="fas fa-arrow-right ml-2"></i></Button>
+                            <Button className="bg-warning text-dark">Request Change Password <i className="fas fa-arrow-right ml-2"></i></Button>
                         </Link>
                     </div>
                 </div>

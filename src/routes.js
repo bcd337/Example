@@ -3,6 +3,8 @@ import Home from './Home'
 import Sidebar from './Sidebar'
 import Data from './Data'
 import Login from './Login'
+import Register from './Register'
+import ForgotPassword from './ForgotPassword'
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom"
 
 const router = () => { 
@@ -14,6 +16,12 @@ const router = () => {
                 <Switch>
                     <Route exact path={"/login"}>
                         <Login/>
+                    </Route>
+                    <Route exact path={"/register"}>
+                        <Register/>
+                    </Route>
+                    <Route exact path={"/forgot_password"}>
+                        <ForgotPassword/>
                     </Route>
                     <Route exact path={"/"}>
                         <Sidebar />

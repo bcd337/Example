@@ -53,3 +53,37 @@ code {
   align-items: center;
   justify-content: flex-end;
 }
+
+.shift { 
+  opacity: 1;
+  transform: unset;
+  animation-name: content-wrapper;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+.shift > * { 
+  animation-name: content-wrapper-child;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes content-wrapper {
+  from {
+      overflow-x: hidden;
+  }
+  to {
+      overflow-x: hidden;
+  }
+}
+
+@keyframes content-wrapper-child {
+  from {
+      opacity: 0;
+      transform: translateX(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
