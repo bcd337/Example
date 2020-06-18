@@ -8,6 +8,7 @@ import ForgotPassword from './ForgotPassword'
 import {Route, Switch, Router} from "react-router-dom"
 import LoginRoute from './Route'
 import history from "./history"
+import Provinsi from './Provinsi'
 
 const router = () => { 
 
@@ -39,6 +40,9 @@ const router = () => {
                                         </LoginRoute>
                                         <LoginRoute exact path={"/data"}>
                                             <Data/>
+                                        </LoginRoute>
+                                        <LoginRoute exact path={"/provinsi"}>
+                                            <Provinsi/>
                                         </LoginRoute>
                                     </Switch>
                                 </div>

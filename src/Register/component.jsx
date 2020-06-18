@@ -1,17 +1,6 @@
-import React, { useState } from 'react'
-// import './style.css'
-import classNames from 'classnames'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import sembakoo from '../resources/sembakoo.svg'
-import background from '../resources/background.png'
-import {useForm} from 'react-hook-form'
 import {
-    Sidenav,
-    Nav,
-    Dropdown,
-    Navbar,
-    Sidebar,
-    Icon,
     Input,
     Button,
     DatePicker,
@@ -68,8 +57,6 @@ const sector = [
 
 
 function App({open, toogle_open}) {
-
-    console.log("background", background)
 
     return (
         <div className="h-100vh w-100vw">
