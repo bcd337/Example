@@ -6,16 +6,16 @@ const {Column, HeaderCell, Cell, Pagination} = Table;
 const data = [
     {
         id: 1,
-        value: "Jakarta"
+        value: "Sumatera Utara"
     }, {
         id: 2,
-        value: "Bandung"
+        value: "Sumatera Barat"
     }, {
         id: 3,
-        value: "Tangerang"
+        value: "Riau"
     }, {
         id: 4,
-        value: "Bogor"
+        value: "Sumatera Selatan"
     }
 ]
 
@@ -31,10 +31,13 @@ const Provinsi = () => {
         }}>
             <div className="row mb-3">
                 <div className="col-4" >
-                    <Input placeholder={"Provinsi"}/>
+                    <Input placeholder={"Nama Provinsi"}/>
                 </div>
-                <div>
-                    <Button color={"blue"}>Simpan Provinsi</Button>
+                <div className="col-6 pl-1">
+                    <Button color={"blue"}>Cari</Button>
+                </div>
+                <div className="col-1">
+                    <Button color={"red"}><i className={`fa fa-plus`}></i> Tambah Data</Button>
                 </div>
             </div>
             <div style={{
@@ -75,7 +78,9 @@ const Provinsi = () => {
                                         ...data
                                     ]}>
                                         <Column width={60} align="center">
-                                            <HeaderCell>Id</HeaderCell>
+                                            <HeaderCell>
+                                                <i className="fa fa-sort-asc"></i>Id
+                                            </HeaderCell>
                                             <Cell dataKey="id"/>
                                         </Column>
 
@@ -94,6 +99,7 @@ const Provinsi = () => {
                                                     }
                                                     return (
                                                         <span>
+                                                            <div className={`fa fa-edit`} onClick={handleAction}/> 
                                                             <div className={`fa fa-trash`} onClick={handleAction}/>
                                                         </span>
                                                     );
