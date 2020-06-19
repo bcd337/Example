@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import App from './component'
-import { get_data, on_detail, get_region_type, slice_region_list, REGION_TYPE } from './actions'
+import { reset, get_data, on_detail, get_region_type, slice_region_list, REGION_TYPE } from './actions'
 import { on_modify } from '../ModalModifyProvinsi/actions'
 
 const mapStateToProps = (state) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
+    reset,
     get_data,
     on_modify,
     on_detail,
