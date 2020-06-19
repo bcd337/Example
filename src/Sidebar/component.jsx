@@ -68,9 +68,6 @@ function App({open, toogle_open, logout}) {
                             <SubLink to={"/region"}>
                                 Region
                             </SubLink>
-                            <SubLink to={"/kabupaten"}>
-                                Kabupaten
-                            </SubLink>
                             <SubLink to={"/commodity"}>
                                 Commodity
                             </SubLink>

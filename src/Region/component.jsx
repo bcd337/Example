@@ -6,7 +6,8 @@ import {
     Button,
     InputGroup,
     Icon,
-    Alert
+    Alert,
+    Breadcrumb,
 } from 'rsuite';
 import ModalAddProvinsi from '../ModalAddProvinsi'
 import ModalModifyProvinsi from '../ModalModifyProvinsi'
@@ -40,6 +41,11 @@ const Region = ({
 
             {region_list.length>0&&
                 <React.Fragment>
+                    <Breadcrumb className="p-0">
+                        {region_list.map((value) => (
+                            <Breadcrumb.Item>{value.name}</Breadcrumb.Item>
+                        ))}
+                    </Breadcrumb>
                     <div className="row mb-3">
                         <div className="col font-weight-bold text-capitalize">
                             {type}
