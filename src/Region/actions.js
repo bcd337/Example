@@ -68,7 +68,7 @@ export const get_data = () => {
         
         if (region_list.length > 0) { 
             const region_type = get_region_type(REGION_TYPE, region_list)
-            const region_type_id = region_list[region_list.length-1]
+            const region_type_id = region_list[region_list.length-1].id
     
             params[`${region_type}_id`] = region_type_id
         }
