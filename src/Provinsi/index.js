@@ -1,7 +1,7 @@
 import React from 'react'
 import AutoSizer from "react-virtualized-auto-sizer";
-import {SelectPicker, Table, Input, Button} from 'rsuite';
-const {Column, HeaderCell, Cell, Pagination} = Table;
+import {SelectPicker, Table, Input, Button, InputGroup, Icon} from 'rsuite';
+const {Column, HeaderCell, Cell} = Table;
 
 const data = [
     {
@@ -31,13 +31,15 @@ const Provinsi = () => {
         }}>
             <div className="row mb-3">
                 <div className="col-4" >
-                    <Input placeholder={"Nama Provinsi"}/>
-                </div>
-                <div className="col">
-                    <Button color={"blue"}>Cari</Button>
+                    <InputGroup>
+                        <Input placeholder={"Nama Provinsi"}/>
+                        <InputGroup.Button>
+                            <Icon icon="search" />
+                        </InputGroup.Button>
+                    </InputGroup>
                 </div>
                 <div className="col text-right">
-                    <Button color={"red"}><i className={`fa fa-plus`}></i> Tambah Data</Button>
+                    <Button color="red"><i className={`fa fa-plus`}></i> Tambah Data</Button>
                 </div>
             </div>
             <div style={{
@@ -89,7 +91,7 @@ const Provinsi = () => {
                                             <Cell dataKey="value"/>
                                         </Column>
 
-                                        <Column width={60} align="center">
+                                        <Column width={70} align="center">
                                             <HeaderCell></HeaderCell>
 
                                             <Cell>
@@ -98,7 +100,7 @@ const Provinsi = () => {
                                                         alert(`id:${rowData.id}`);
                                                     }
                                                     return (
-                                                        <span>
+                                                        <span className="d-flex w-100 justify-content-between px-2">
                                                             <div className={`fa fa-edit`} onClick={handleAction}/> 
                                                             <div className={`fa fa-trash`} onClick={handleAction}/>
                                                         </span>
