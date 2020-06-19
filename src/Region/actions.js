@@ -3,7 +3,8 @@ import {Alert} from 'rsuite'
 export const REGION_TYPE = [ 
     "province",
     "sector",
-    "agent"
+    "agent",
+    "agent_child"
 ]
 
 const key = "ModalAddProvinsi"
@@ -12,6 +13,7 @@ export const type = {
     CHANGE_REGION_LIST: `${key}_CHANGE_REGION_LIST`,
     CHANGE_DATA: `${key}_CHANGE_DATA`,
     ADD_REGION_LIST: `${key}_ADD_REGION_LIST`,
+    SLICE_REGION_LIST: `${key}_SLICE_REGION_LIST`,
     CHANGE_LOADING: `${key}_CHANGE_LOADING`,
     RESET: `${key}_RESET`,
 }
@@ -29,6 +31,11 @@ export const change_data = (value) => ({
 export const add_region_list = (value) => ({
     type: type.ADD_REGION_LIST,
     value,
+})
+
+export const slice_region_list = (value) => ({
+    type: type.SLICE_REGION_LIST,
+    value
 })
 
 export const change_loading = (value) => ({

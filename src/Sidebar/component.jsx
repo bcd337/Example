@@ -62,14 +62,11 @@ function App({open, toogle_open, logout}) {
                             title="Input Data"
                             icon={< Icon icon = "magic" />}
                             placement="rightStart">
-                            <SubLink to={"/province"}>
-                                Propinsi
-                            </SubLink>
-                            <SubLink to={"/polres"}>
-                                Polres
-                            </SubLink>
                             <SubLink to={"/data"}>
                                 Data
+                            </SubLink>
+                            <SubLink to={"/region"}>
+                                Region
                             </SubLink>
                             <SubLink to={"/commodity"}>
                                 Commodity

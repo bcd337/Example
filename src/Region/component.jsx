@@ -27,6 +27,7 @@ const Region = ({
     type,
     get_data,
     child,
+    slice_region_list,
 }) => {
 
     return (
@@ -42,9 +43,14 @@ const Region = ({
             {region_list.length>0&&
                 <React.Fragment>
                     <Breadcrumb className="p-0">
-                        {region_list.map((value) => (
-                            <Breadcrumb.Item>{value.name}</Breadcrumb.Item>
-                        ))}
+                        <Breadcrumb.Item onClick={slice_region_list.bind(this, slice_region_list.length - 1)}>Home</Breadcrumb.Item>
+                        {region_list.map((value, index) => {
+                            console.log("region_list",index)
+                             
+                            return (
+                                <Breadcrumb.Item onClick={slice_region_list.bind(this, index)} key={`${index}_${value.name}`}>{value.name}</Breadcrumb.Item>
+                            )
+                        })}
                     </Breadcrumb>
                     <div className="row mb-3">
                         <div className="col font-weight-bold text-capitalize">
@@ -118,8 +124,8 @@ const Region = ({
                                                     {rowData => {
                                                         return (
                                                             <span className="d-flex w-100 justify-content-between px-2 align-items-center">
-                                                                <div className={`fa fa-eye`} onClick={on_detail.bind(this,rowData)}/>
-                                                                <div className={`fa fa-edit`} onClick={on_modify.bind(this,rowData)}/>
+                                                                <div className={`fa fa-eye pointer`} onClick={on_detail.bind(this,rowData)}/>
+                                                                <div className={`fa fa-edit pointer`} onClick={on_modify.bind(this,rowData)}/>
                                                                 <Confirm onOk={delete_provinsi.bind(this, rowData.id)} message={"Are you sure?"}>
                                                                     <div className={`fa fa-trash`}/>
                                                                 </Confirm>
