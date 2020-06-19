@@ -33,10 +33,10 @@ const Provinsi = () => {
                 <div className="col-4" >
                     <Input placeholder={"Nama Provinsi"}/>
                 </div>
-                <div className="col-6 pl-1">
+                <div className="col">
                     <Button color={"blue"}>Cari</Button>
                 </div>
-                <div className="col-1">
+                <div className="col text-right">
                     <Button color={"red"}><i className={`fa fa-plus`}></i> Tambah Data</Button>
                 </div>
             </div>
