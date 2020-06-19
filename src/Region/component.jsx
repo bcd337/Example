@@ -5,27 +5,28 @@ import {
     Input,
     Button,
     InputGroup,
-    Icon
+    Icon,
+    Alert
 } from 'rsuite';
+import ModalAddProvinsi from '../ModalAddProvinsi'
+import ModalModifyProvinsi from '../ModalModifyProvinsi'
+import Confirm from '../Confirm'
 const {Column, HeaderCell, Cell} = Table;
 
-const data = [
-    {
-        id: 1,
-        value: "Sumatera Utara"
-    }, {
-        id: 2,
-        value: "Sumatera Barat"
-    }, {
-        id: 3,
-        value: "Riau"
-    }, {
-        id: 4,
-        value: "Sumatera Selatan"
-    }
-]
 
-const Provinsi = () => {
+function delete_provinsi(id) { 
+    Alert.success("Provinsi has been delete")
+}
+
+const Region = ({
+    on_modify,
+    data,
+    region_list,
+    on_detail,
+    type,
+    get_data,
+    child,
+}) => {
 
     return (
         <div
@@ -35,19 +36,40 @@ const Provinsi = () => {
             display: 'flex',
             flexFlow: 'column'
         }}>
+            <ModalModifyProvinsi/>
+
+            {region_list.length>0&&
+                <React.Fragment>
+                    <div className="row mb-3">
+                        <div className="col font-weight-bold text-capitalize">
+                            {type}
+                        </div>
+                    </div>
+                    <div className="row mb-3">
+                        <div className="col">
+                            {region_list[region_list.length-1].name}
+                        </div>
+                    </div>
+                </React.Fragment>
+                
+            }
+
             <div className="row mb-3">
                 <div className="col-4">
                     <InputGroup>
-                        <Input placeholder={"Nama Provinsi"}/>
+                        <Input placeholder={`Nama ${child}`}/>
                         <InputGroup.Button>
                             <Icon icon="search"/>
                         </InputGroup.Button>
                     </InputGroup>
                 </div>
                 <div className="col text-right">
-                    <Button color="green">
-                        <i className={`fa fa-plus mr-2`}></i>
-                        Tambah Data</Button>
+                    <ModalAddProvinsi>
+                        <Button color="green">
+                            <i className={`fa fa-plus mr-2`}></i>
+                            Tambah Data
+                        </Button>
+                    </ModalAddProvinsi>
                 </div>
             </div>
             <div
@@ -65,28 +87,12 @@ const Provinsi = () => {
                         }}>
                             <div className="w-100 h-100">
                                 <AutoSizer disableWidth>
-                                    {({height, width}) => (
+                                    {({height}) => (
                                         <Table
                                             affixHeader={1}
                                             virtualized={true}
                                             height={height}
-                                            data={[
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data,
-                                            ...data
-                                        ]}>
+                                            data={data}>
                                             <Column width={60} align="center">
                                                 <HeaderCell>
                                                     <i className="fa fa-sort-asc"></i>Id
@@ -95,22 +101,22 @@ const Provinsi = () => {
                                             </Column>
 
                                             <Column flexGrow={1}>
-                                                <HeaderCell>Provinsi</HeaderCell>
-                                                <Cell dataKey="value"/>
+                                                <HeaderCell className="text-capitalize">{child}</HeaderCell>
+                                                <Cell dataKey="name"/>
                                             </Column>
 
-                                            <Column width={70} align="center">
+                                            <Column width={110} align="center">
                                                 <HeaderCell></HeaderCell>
 
                                                 <Cell>
                                                     {rowData => {
-                                                        function handleAction() {
-                                                            alert(`id:${rowData.id}`);
-                                                        }
                                                         return (
-                                                            <span className="d-flex w-100 justify-content-between px-2">
-                                                                <div className={`fa fa-edit`} onClick={handleAction}/>
-                                                                <div className={`fa fa-trash`} onClick={handleAction}/>
+                                                            <span className="d-flex w-100 justify-content-between px-2 align-items-center">
+                                                                <div className={`fa fa-eye`} onClick={on_detail.bind(this,rowData)}/>
+                                                                <div className={`fa fa-edit`} onClick={on_modify.bind(this,rowData)}/>
+                                                                <Confirm onOk={delete_provinsi.bind(this, rowData.id)} message={"Are you sure?"}>
+                                                                    <div className={`fa fa-trash`}/>
+                                                                </Confirm>
                                                             </span>
                                                         );
                                                     }}
@@ -128,4 +134,4 @@ const Provinsi = () => {
     )
 }
 
-export default Provinsi
+export default Region

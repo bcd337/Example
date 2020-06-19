@@ -8,7 +8,7 @@ import ForgotPassword from './ForgotPassword'
 import {Route, Switch, Router} from "react-router-dom"
 import LoginRoute from './Route'
 import history from "./history"
-import Provinsi from './Provinsi'
+import Region from './Region'
 import Kabupaten from './Kabupaten'
 import Commodity from './Commodity'
 
@@ -43,8 +43,8 @@ const router = () => {
                                         <LoginRoute exact path={"/data"}>
                                             <Data/>
                                         </LoginRoute>
-                                        <LoginRoute exact path={"/provinsi"}>
-                                            <Provinsi/>
+                                        <LoginRoute exact path={"/region"}>
+                                            <Region/>
                                         </LoginRoute>
                                         <LoginRoute exact path={"/kabupaten"}>
                                             <Kabupaten/>

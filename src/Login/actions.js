@@ -1,6 +1,5 @@
 import history from "../history"
 import {post} from '../helpers/ajax'
-import { Message } from "rsuite"
 
 export const type = {
     CHANGE_EMAIL: "LOGIN_CHANGE_EMAIL",

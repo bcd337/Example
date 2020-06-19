@@ -65,8 +65,8 @@ function App({open, toogle_open, logout}) {
                             <SubLink to={"/data"}>
                                 Data
                             </SubLink>
-                            <SubLink to={"/provinsi"}>
-                                Provinsi
+                            <SubLink to={"/region"}>
+                                Region
                             </SubLink>
                             <SubLink to={"/kabupaten"}>
                                 Kabupaten
