@@ -12,20 +12,24 @@ const {Column, HeaderCell, Cell} = Table;
 const data = [
     {
         id: 1,
-        value: "Sumatera Utara"
+        value: "Sumatera Utara",
+        provinsi: "Sumatera"
     }, {
         id: 2,
-        value: "Sumatera Barat"
+        value: "Sumatera Barat",
+        provinsi: "Sumatera"
     }, {
         id: 3,
-        value: "Riau"
+        value: "Riau",
+        provinsi: "Sumatera"
     }, {
         id: 4,
-        value: "Sumatera Selatan"
+        value: "Sumatera Selatan",
+        provinsi: "Sumatera"
     }
 ]
 
-const Provinsi = () => {
+const Kabupaten = () => {
 
     return (
         <div
@@ -38,7 +42,7 @@ const Provinsi = () => {
             <div className="row mb-3">
                 <div className="col-4">
                     <InputGroup>
-                        <Input placeholder={"Nama Provinsi"}/>
+                        <Input placeholder={"Keyword"}/>
                         <InputGroup.Button>
                             <Icon icon="search"/>
                         </InputGroup.Button>
@@ -96,6 +100,11 @@ const Provinsi = () => {
 
                                             <Column flexGrow={1}>
                                                 <HeaderCell>Provinsi</HeaderCell>
+                                                <Cell dataKey="provinsi"/>
+                                            </Column>
+
+                                            <Column flexGrow={1}>
+                                                <HeaderCell>Kabupaten</HeaderCell>
                                                 <Cell dataKey="value"/>
                                             </Column>
 
@@ -128,4 +137,4 @@ const Provinsi = () => {
     )
 }
 
-export default Provinsi
+export default Kabupaten

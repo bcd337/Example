@@ -9,7 +9,8 @@ import {Route, Switch, Router} from "react-router-dom"
 import LoginRoute from './Route'
 import history from "./history"
 import Provinsi from './Provinsi'
-import Kota from './Kota'
+import Kabupaten from './Kabupaten'
+import Commodity from './Commodity'
 
 const router = () => { 
 
@@ -45,8 +46,11 @@ const router = () => {
                                         <LoginRoute exact path={"/provinsi"}>
                                             <Provinsi/>
                                         </LoginRoute>
-                                        <LoginRoute exact path={"/kota"}>
-                                            <Kota/>
+                                        <LoginRoute exact path={"/kabupaten"}>
+                                            <Kabupaten/>
+                                        </LoginRoute>
+                                        <LoginRoute exact path={"/commodity"}>
+                                            <Commodity/>
                                         </LoginRoute>
                                     </Switch>
                                 </div>

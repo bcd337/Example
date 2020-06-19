@@ -10,7 +10,7 @@ import Background from '../Background'
 import FixedFooter from '../FixedFooter'
 import FixedHeader from '../FixedHeader'
 
-const kota = [
+const kabupaten = [
     {
         "label": "Jakarta",
         "value": "Jakarta",
@@ -89,7 +89,7 @@ function App({open, toogle_open}) {
 
                     <div className="form-group row">
                         <div className="col-6 pr-2">
-                            <SelectPicker placeholder="Tempat Lahir" data={kota} className="w-100"/>
+                            <SelectPicker placeholder="Tempat Lahir" data={kabupaten} className="w-100"/>
                         </div>
                         <div className="col pl-2">
                             <DatePicker placeholder="Tanggal Lahir" className="w-100"/>
