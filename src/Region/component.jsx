@@ -13,6 +13,7 @@ import ModalAddProvinsi from '../ModalAddProvinsi'
 import ModalModifyProvinsi from '../ModalModifyProvinsi'
 import ModalAddSector from '../ModalAddSector'
 import ModalAddAgent from '../ModalAddAgent'
+import ModalAddAgentChild from '../ModalAddAgentChild'
 
 import Confirm from '../Confirm'
 const {Column, HeaderCell, Cell} = Table;
@@ -126,6 +127,22 @@ class Region extends React.Component {
                                     Tambah Agent
                                 </Button>
                             </ModalAddAgent>
+                        }
+
+                        {region_list.length == 3 && 
+                            <ModalAddAgentChild data={{
+                                provinsi_id: region_list[0].id, 
+                                provinsi_name: region_list[0].name,
+                                sector_id: region_list[1].id, 
+                                sector_name: region_list[1].name,
+                                agent_id: region_list[2].id, 
+                                agent_name: region_list[2].name,
+                            }}>
+                                <Button color="green">
+                                    <i className={`fa fa-plus mr-2`}></i>
+                                    Tambah Agent Child
+                                </Button>
+                            </ModalAddAgentChild>
                         }
 
                     </div>

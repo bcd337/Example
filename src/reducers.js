@@ -9,6 +9,7 @@ import {reducers as modalAddProvinsi} from './ModalAddProvinsi'
 import {reducers as modalModifyProvinsi} from './ModalModifyProvinsi'
 import {reducers as modalAddSector} from './ModalAddSector'
 import {reducers as modalAddAgent} from './ModalAddAgent'
+import {reducers as modalAddAgentChild} from './ModalAddAgentChild'
 
 const combine = combineReducers({
     home,
@@ -19,6 +20,7 @@ const combine = combineReducers({
     modalModifyProvinsi,
     modalAddSector,
     modalAddAgent,
+    modalAddAgentChild,
 })
 
 const store = createStore(
