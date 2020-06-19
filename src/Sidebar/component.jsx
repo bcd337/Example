@@ -68,9 +68,6 @@ function App({open, toogle_open, logout}) {
                             <SubLink to={"/provinsi"}>
                                 Provinsi
                             </SubLink>
-                            <SubLink to={"/kabupaten"}>
-                                Kabupaten
-                            </SubLink>
                             <SubLink to={"/kota"}>
                                 Kota
                             </SubLink>
