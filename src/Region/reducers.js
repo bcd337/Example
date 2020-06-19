@@ -20,6 +20,11 @@ const main = (state = defaultState(), action) => {
                 ...state,
                 region_list: action.value
             }
+        case type.SLICE_REGION_LIST: 
+            return { 
+                ...state,
+                region_list: state.region_list.slice(0, action.value + 1)
+            }
         case type.CHANGE_LOADING: 
             return { 
                 ...state,
