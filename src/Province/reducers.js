@@ -7,18 +7,18 @@ const main = (state = defaultState(), action) => {
                 ...state,
                 data: action.value
             }
-        case type.ADD_REGION_LIST: 
+        case type.ADD_PROVINCE_LIST: 
             return { 
                 ...defaultState(),
-                region_list: [
-                    ...state.region_list,
+                province_list: [
+                    ...state.province_list,
                     action.value
                 ]
             }
-        case type.CHANGE_REGION_LIST: 
+        case type.CHANGE_PROVINCE_LIST: 
             return {
                 ...state,
-                region_list: action.value
+                province_list: action.value
             }
         case type.CHANGE_LOADING: 
             return { 
@@ -39,7 +39,7 @@ const defaultState = () => ({
         id: 1,
         name: "Sumatera Utara"
     }],
-    region_list: [],
+    province_list: [],
     loading: false,
 })
 

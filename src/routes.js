@@ -9,6 +9,8 @@ import {Route, Switch, Router} from "react-router-dom"
 import LoginRoute from './Route'
 import history from "./history"
 import Region from './Region'
+// import Province from './Province'
+import Province from './Province'
 import Commodity from './Commodity'
 
 const router = () => { 
@@ -42,7 +44,10 @@ const router = () => {
                                         <LoginRoute exact path={"/data"}>
                                             <Data/>
                                         </LoginRoute>
-                                        <LoginRoute exact path={"/region"}>
+                                        <LoginRoute exact path={"/province"}>
+                                            <Province/>
+                                        </LoginRoute>
+                                        <LoginRoute exact path={"/polres"}>
                                             <Region/>
                                         </LoginRoute>
                                         <LoginRoute exact path={"/commodity"}>

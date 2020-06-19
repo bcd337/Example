@@ -19,10 +19,10 @@ function delete_provinsi(id) {
     Alert.success("Provinsi has been delete")
 }
 
-const Region = ({
+const Province = ({
     on_modify,
     data,
-    region_list,
+    province_list,
     on_detail,
     type,
     get_data,
@@ -39,10 +39,10 @@ const Region = ({
         }}>
             <ModalModifyProvinsi/>
 
-            {region_list.length>0&&
+            {province_list.length>0&&
                 <React.Fragment>
                     <Breadcrumb className="p-0">
-                        {region_list.map((value) => (
+                        {province_list.map((value) => (
                             <Breadcrumb.Item>{value.name}</Breadcrumb.Item>
                         ))}
                     </Breadcrumb>
@@ -53,7 +53,7 @@ const Region = ({
                     </div>
                     <div className="row mb-3">
                         <div className="col">
-                            {region_list[region_list.length-1].name}
+                            {province_list[province_list.length-1].name}
                         </div>
                     </div>
                 </React.Fragment>
@@ -140,4 +140,4 @@ const Region = ({
     )
 }
 
-export default Region
+export default Province

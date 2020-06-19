@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import App from './component'
-import { get_data, on_detail, get_region_type, REGION_TYPE } from './actions'
+import { get_data, on_detail, get_province_type, PROVINCE_TYPE } from './actions'
 import { on_modify } from '../ModalModifyProvinsi/actions'
 
 const mapStateToProps = (state) => ({
-    ...state.region,
-    type: get_region_type(REGION_TYPE, state.region.region_list),
-    child: get_region_type(REGION_TYPE, new Array(state.region.region_list.length + 1))
+    ...state.province,
+    type: get_province_type(PROVINCE_TYPE, state.province.province_list),
+    child: get_province_type(PROVINCE_TYPE, new Array(state.province.province_list.length + 1))
 })
 
 const mapDispatchToProps = {
