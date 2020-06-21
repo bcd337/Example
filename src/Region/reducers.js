@@ -40,10 +40,7 @@ const main = (state = defaultState(), action) => {
 }
 
 const defaultState = () => ({
-    data: [ {
-        id: 1,
-        name: "Sumatera Utara"
-    }],
+    data: [],
     region_list: [],
     loading: false,
 })

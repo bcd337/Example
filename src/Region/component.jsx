@@ -48,6 +48,7 @@ class Region extends React.Component {
             type,
             child,
             slice_region_list,
+            loading,
         } = this.props
 
         return (
@@ -164,6 +165,7 @@ class Region extends React.Component {
                                     <AutoSizer disableWidth>
                                         {({height}) => (
                                             <Table
+                                                loading={loading}
                                                 affixHeader={1}
                                                 virtualized={true}
                                                 height={height}

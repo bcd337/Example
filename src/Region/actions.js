@@ -1,3 +1,4 @@
+import {get} from '../helpers/ajax'
 import {Alert} from 'rsuite'
 
 export const REGION_TYPE = [ 
@@ -33,11 +34,6 @@ export const add_region_list = (value) => ({
     value,
 })
 
-export const slice_region_list = (value) => ({
-    type: type.SLICE_REGION_LIST,
-    value
-})
-
 export const change_loading = (value) => ({
     type: type.CHANGE_LOADING,
     value,
@@ -57,8 +53,19 @@ export const on_detail = (data) => {
 }
 
 
-export const get_data = () => { 
+export const slice_region_list = (value) => { 
     return (dispatch, getState) => { 
+        dispatch({
+            type: type.SLICE_REGION_LIST,
+            value
+        })
+
+        dispatch(get_data())
+    }
+}
+
+export const get_data = () => { 
+    return async (dispatch, getState) => { 
         const state = getState()
         const { 
             region_list
@@ -73,23 +80,16 @@ export const get_data = () => {
             params[`${region_type}_id`] = region_type_id
         }
         
-        console.log(`get`, params)
+        dispatch(change_loading(true))
 
-        dispatch(change_data([
-            {
-                id: 1,
-                name: "Sumatera Utara"
-            }, {
-                id: 2,
-                name: "Sumatera Barat"
-            }, {
-                id: 3,
-                name: "Riau"
-            }, {
-                id: 4,
-                name: "Sumatera Selatan"
-            }
-        ]))
+        const data = await get(`https://sembako-api.archv.id/api/region/v1`, params)
+        var region = []
+        if (data) {
+            region = data.content.region
+        }
+
+        dispatch(change_data(region))
+        dispatch(change_loading(false))
 
     }
 }
