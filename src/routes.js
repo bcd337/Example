@@ -10,6 +10,7 @@ import LoginRoute from './Route'
 import history from "./history"
 import Region from './Region'
 import Commodity from './Commodity'
+import News from './News'
 
 const router = () => { 
 
@@ -47,6 +48,9 @@ const router = () => {
                                         </LoginRoute>
                                         <LoginRoute exact path={"/commodity"}>
                                             <Commodity/>
+                                        </LoginRoute>
+                                        <LoginRoute exact path={"/news"}>
+                                            <News />
                                         </LoginRoute>
                                     </Switch>
                                 </div>

@@ -71,6 +71,9 @@ function App({open, toogle_open, logout}) {
                             <SubLink to={"/commodity"}>
                                 Commodity
                             </SubLink>
+                            <SubLink to={"/news"}>
+                                News
+                            </SubLink>
                         </Dropdown>
                         <Dropdown
                             eventKey="2"
