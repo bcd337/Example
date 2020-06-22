@@ -88,7 +88,7 @@ export const get_data = () => {
             region = data.content.region
         }
 
-        dispatch(change_data(region))
+        dispatch(change_data(region || []))
         dispatch(change_loading(false))
 
     }
