@@ -12,6 +12,8 @@ import Region from './Region'
 import Commodity from './Commodity'
 import News from './News'
 
+import IqbalApp from './IqbalApp'
+
 const router = () => { 
 
     return (
@@ -57,6 +59,10 @@ const router = () => {
                             </div>
                             
                         </div>
+                    </Route>
+
+                    <Route path={"iqbal"}>
+                        <IqbalApp/>
                     </Route>
                 </Switch>
             

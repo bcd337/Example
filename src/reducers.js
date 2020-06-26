@@ -13,6 +13,10 @@ import {reducers as modalAddAgent} from './ModalAddAgent'
 import {reducers as modalAddAgentChild} from './ModalAddAgentChild'
 import {reducers as modalNewsApprove} from './ModalNewsApprove'
 
+import {reducers as iqbalApp} from './IqbalApp'
+import {reducers as commodity} from './Commodity'
+
+
 const combine = combineReducers({
     home,
     sidebar,
@@ -25,6 +29,9 @@ const combine = combineReducers({
     modalAddAgent,
     modalAddAgentChild,
     modalNewsApprove,
+    commodity,
+
+    iqbalApp,
 })
 
 const store = createStore(
