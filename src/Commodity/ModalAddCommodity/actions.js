@@ -48,6 +48,7 @@ export const on_save = (event) => {
         
         const {
             name,
+            comodity_type,
             after,
         } = state.modalAddCommodity
 
@@ -59,7 +60,7 @@ export const on_save = (event) => {
         dispatch(change_loading(true))
 
         const data = await post('https://sembako-api.archv.id/api/commodity/v1', {
-            type : 2,
+            type : comodity_type,
             name: name,
             icon: "https://minio-global.archv.id/sembakopublic/icon/beras.png"
         })

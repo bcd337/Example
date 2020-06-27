@@ -10,7 +10,6 @@ import {
     Panel,
     Breadcrumb,
     Modal,
-    Alert,
 } from 'rsuite';
 
 import ModalAddCommodity from './ModalAddCommodity'
@@ -30,12 +29,13 @@ class Commodity extends Component{
         const { 
             on_delete_confirm,
             on_delete_modal_togle,
+            on_delete,
 
             commodity_loading,
             data,
             detail,
             modal_delete_is_open,
-        } = this.props
+        } = this.props        
         
         return(
             <>
@@ -100,9 +100,6 @@ class Commodity extends Component{
                                                         height={height}
                                                         data={data}
                                                         rowHeight={80}
-                                                        onRowClick={data => {
-                                                            console.log(data);
-                                                        }}
                                                     >
                                                         <Column width={60} align="center" verticalAlign="middle">
                                                             <HeaderCell>
@@ -156,7 +153,7 @@ class Commodity extends Component{
                                                                                     <Button
                                                                                         color="red" size="xs" block
                                                                                         onClick={
-                                                                                            ()=>on_delete_confirm(this,rowData)
+                                                                                            ()=>on_delete_confirm(rowData)
                                                                                         }
                                                                                     >
                                                                                         Hapus
@@ -216,7 +213,17 @@ class Commodity extends Component{
         
                                                             <Column flexGrow={1}>
                                                                 <HeaderCell className="text-capitalize">Name</HeaderCell>
-                                                                <Cell dataKey="name"/>
+                                                                <Cell>
+                                                                    {
+                                                                        rowData => {
+                                                                            return(
+                                                                                <a href="#">
+                                                                                    {rowData.id}
+                                                                                </a>
+                                                                            )
+                                                                        }
+                                                                    }
+                                                                </Cell>
                                                             </Column>
         
                                                             <Column flexGrow={1}>
@@ -317,10 +324,15 @@ class Commodity extends Component{
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        
+                        <p>
+                            {detail.id}
+                        </p>
+                        <p>
+                            {detail.name}
+                        </p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button appearance="primary">
+                        <Button appearance="primary" onClick={on_delete}>
                             Simpan
                         </Button>
                         <Button appearance="subtle" onClick={on_delete_modal_togle}>

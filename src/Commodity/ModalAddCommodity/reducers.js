@@ -38,7 +38,7 @@ const main = (state = defaultState(), action) => {
 
 const defaultState = () => ({
     name: "",
-    comodity_type:"",
+    comodity_type:"1",
     open: false,
     loading: false,
     after: false,

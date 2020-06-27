@@ -7,11 +7,21 @@ const main = (state = defaultState(), action) => {
                 ...state,
                 data: action.value
             }
+        case type.CHANGE_DATA_DETAIL:
+            return {
+                ...state,
+                detail: action.value
+            }
         case type.TOOGLE_OPEN: 
             return { 
-                ...defaultState(),
+                ...state,
                 modal_delete_is_open: !state.modal_delete_is_open
-            }            
+            }
+        case type.CHANGE_AFTER: 
+            return {
+                ...state,
+                after: action.value,
+            }                     
         case type.CHANGE_LOADING: 
             return { 
                 ...state,
@@ -25,6 +35,7 @@ const main = (state = defaultState(), action) => {
 const defaultState = () => ({
     data: [],
     detail:{},
+    after:false,
     modal_delete_is_open:false,
     commodity_loading: true,
 })

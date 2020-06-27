@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import App from './component'
-import { change_name, toogle_open, on_save } from './actions'
+import { change_name, change_commodity_type, toogle_open, on_save } from './actions'
 
 const mapStateToProps = (state) => ({
     ...state.modalAddCommodity,
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     change_name,
+    change_commodity_type,
     toogle_open,
     on_save,
 }
