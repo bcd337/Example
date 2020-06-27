@@ -7,10 +7,15 @@ const main = (state = defaultState(), action) => {
                 ...state,
                 data: action.value
             }
+        case type.TOOGLE_OPEN: 
+            return { 
+                ...defaultState(),
+                modal_delete_is_open: !state.modal_delete_is_open
+            }            
         case type.CHANGE_LOADING: 
             return { 
                 ...state,
-                loading: action.value
+                commodity_loading: action.value
             }
         default:
             return state
@@ -19,7 +24,9 @@ const main = (state = defaultState(), action) => {
 
 const defaultState = () => ({
     data: [],
-    loading: true,
+    detail:{},
+    modal_delete_is_open:false,
+    commodity_loading: true,
 })
 
 export default main

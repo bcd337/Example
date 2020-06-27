@@ -5,6 +5,7 @@ const key = "Comodity"
 export const type = {
     CHANGE_DATA: `${key}_CHANGE_DATA`,
     CHANGE_LOADING: `${key}_CHANGE_LOADING`,
+    TOOGLE_OPEN: `${key}_TOOGLE_OPEN`,
 }
 
 export const change_data = (value) => ({
@@ -31,5 +32,22 @@ export const get_data = (value) => {
         dispatch(change_loading(false))
     }
 }
+
+export const on_delete_modal_togle = () => ({
+    type: type.TOOGLE_OPEN,
+})
+
+export const on_delete_confirm = (data) => { 
+    return async (dispatch, getState) => { 
+        dispatch(on_delete_modal_togle())
+    }
+}
+
+export const on_delete = (data) => { 
+    return async (dispatch, getState) => {
+
+    }
+}
+
 
 export default type

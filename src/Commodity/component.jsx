@@ -9,6 +9,8 @@ import {
     Icon,
     Panel,
     Breadcrumb,
+    Modal,
+    Alert,
 } from 'rsuite';
 
 import ModalAddCommodity from './ModalAddCommodity'
@@ -16,12 +18,8 @@ import ModalAddCommodity from './ModalAddCommodity'
 
 const {Column, HeaderCell, Cell} = Table;
 
-class Commodity extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-
-    componentWillMount() { 
+class Commodity extends Component{
+    componentDidMount() { 
         const { 
             get_data,
         } = this.props
@@ -30,9 +28,13 @@ class Commodity extends React.Component{
     }
     render(){
         const { 
+            on_delete_confirm,
+            on_delete_modal_togle,
+
+            commodity_loading,
             data,
-            loading,
-            open,
+            detail,
+            modal_delete_is_open,
         } = this.props
         
         return(
@@ -92,13 +94,12 @@ class Commodity extends React.Component{
                                             <AutoSizer disableWidth>
                                                 {({height}) => (
                                                     <Table
-                                                        loading={loading}
+                                                        loading={commodity_loading}
                                                         affixHeader={1}
                                                         virtualized={true}
                                                         height={height}
                                                         data={data}
                                                         rowHeight={80}
-                                                        verticalAlign="middle"
                                                         onRowClick={data => {
                                                             console.log(data);
                                                         }}
@@ -107,7 +108,13 @@ class Commodity extends React.Component{
                                                             <HeaderCell>
                                                                 <i className="fa fa-sort-asc"></i>No
                                                             </HeaderCell>
-                                                            <Cell dataKey="id"/>
+                                                            <Cell>
+                                                                {
+                                                                    (_, index) => { 
+                                                                        return index+1
+                                                                    }
+                                                                }    
+                                                            </Cell>
                                                         </Column>
         
                                                         <Column flexGrow={1} verticalAlign="middle">
@@ -138,13 +145,27 @@ class Commodity extends React.Component{
                                                         <Column flexGrow={1} verticalAlign="middle">
                                                             <HeaderCell className="text-capitalize">Aksi</HeaderCell>
                                                             <Cell className="pr-2">
-                                                                <ButtonToolbar  className="mb-1">
-                                                                    <Button color="yellow" size="xs" className="text-dark" block>Ubah</Button>
-                                                                </ButtonToolbar>
-                                                                <ButtonToolbar  >
-                                                                    <Button color="red" size="xs" block>Hapus</Button>
-                                                                </ButtonToolbar>
-
+                                                                {
+                                                                    rowData => {
+                                                                        return (
+                                                                            <>
+                                                                                <ButtonToolbar  className="mb-1">
+                                                                                    <Button color="yellow" size="xs" className="text-dark" block>Ubah</Button>
+                                                                                </ButtonToolbar>
+                                                                                <ButtonToolbar  >
+                                                                                    <Button
+                                                                                        color="red" size="xs" block
+                                                                                        onClick={
+                                                                                            ()=>on_delete_confirm(this,rowData)
+                                                                                        }
+                                                                                    >
+                                                                                        Hapus
+                                                                                    </Button>
+                                                                                </ButtonToolbar>                                                                                
+                                                                            </>
+                                                                        );
+                                                                    }
+                                                                }
                                                             </Cell>
                                                         </Column>
         
@@ -289,6 +310,24 @@ class Commodity extends React.Component{
                         </div>
                     </div>
                 </div>
+                <Modal show={modal_delete_is_open} onHide={on_delete_modal_togle}>
+                    <Modal.Header>
+                        <Modal.Title>
+                            Hapus Komodity Konfirmasi
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button appearance="primary">
+                            Simpan
+                        </Button>
+                        <Button appearance="subtle" onClick={on_delete_modal_togle}>
+                            Batal
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </>
         );
     }

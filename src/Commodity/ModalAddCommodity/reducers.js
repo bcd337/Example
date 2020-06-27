@@ -7,6 +7,16 @@ const main = (state = defaultState(), action) => {
                 ...state,
                 name: action.value
             }
+        case type.CHANGE_COMMODITY_TYPE:
+            return {
+                ...state,
+                comodity_type: action.value
+            }
+        case type.CHANGE_AFTER: 
+            return {
+                ...state,
+                after: action.value,
+            }
         case type.TOOGLE_OPEN: 
             return { 
                 ...defaultState(),
@@ -28,8 +38,10 @@ const main = (state = defaultState(), action) => {
 
 const defaultState = () => ({
     name: "",
+    comodity_type:"",
     open: false,
     loading: false,
+    after: false,
 })
 
 export default main
