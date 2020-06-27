@@ -3,7 +3,7 @@ import App from './component'
 import { change_name, toogle_open, on_save } from './actions'
 
 const mapStateToProps = (state) => ({
-    ...state.modalAddProvinsi,
+    ...state.modalAddCommodity,
 })
 
 const mapDispatchToProps = {
