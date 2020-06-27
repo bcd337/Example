@@ -3,12 +3,17 @@ import AutoSizer from "react-virtualized-auto-sizer";
 import {
     Table,
     Input,
+    ButtonToolbar,
     Button,
     InputGroup,
     Icon,
     Panel,
     Breadcrumb,
 } from 'rsuite';
+
+import ModalAddCommodity from './ModalAddCommodity'
+
+
 const {Column, HeaderCell, Cell} = Table;
 
 class Commodity extends React.Component{
@@ -26,10 +31,9 @@ class Commodity extends React.Component{
     render(){
         const { 
             data,
-            loading
+            loading,
+            open,
         } = this.props
-
-        console.log(data);
         
         return(
             <>
@@ -77,9 +81,11 @@ class Commodity extends React.Component{
                                                 </InputGroup>
                                             </div>
                                             <div>
-                                                <Button color="yellow"  >
-                                                    <Icon icon="pencil-square"  /> Tambah
-                                                </Button>
+                                                <ModalAddCommodity>
+                                                    <Button color="yellow"  >
+                                                        <Icon icon="pencil-square"  /> Tambah
+                                                    </Button>
+                                                </ModalAddCommodity>
                                             </div>
                                         </div>
                                         <div className="flex-grow-1">
@@ -97,20 +103,20 @@ class Commodity extends React.Component{
                                                             console.log(data);
                                                         }}
                                                     >
-                                                        <Column width={60} align="center">
+                                                        <Column width={60} align="center" verticalAlign="middle">
                                                             <HeaderCell>
                                                                 <i className="fa fa-sort-asc"></i>No
                                                             </HeaderCell>
                                                             <Cell dataKey="id"/>
                                                         </Column>
         
-                                                        <Column flexGrow={1}>
-                                                            <HeaderCell className="text-capitalize">Name</HeaderCell>
+                                                        <Column flexGrow={1} verticalAlign="middle">
+                                                            <HeaderCell className="text-capitalize">Nama</HeaderCell>
                                                             <Cell dataKey="name"/>
                                                         </Column>
         
-                                                        <Column flexGrow={1}>
-                                                            <HeaderCell className="text-capitalize">icon</HeaderCell>
+                                                        <Column flexGrow={1} verticalAlign="middle">
+                                                            <HeaderCell className="text-capitalize">Foto</HeaderCell>
                                                             <Cell>
                                                                 {data => {
                                                                     if ( !data.icon) { 
@@ -124,14 +130,22 @@ class Commodity extends React.Component{
                                                             </Cell>
                                                         </Column>
         
-                                                        <Column flexGrow={1}>
-                                                            <HeaderCell className="text-capitalize">Type</HeaderCell>
+                                                        <Column flexGrow={1} verticalAlign="middle">
+                                                            <HeaderCell className="text-capitalize">Tipe</HeaderCell>
                                                             <Cell dataKey="type"/>
                                                         </Column>
         
-                                                        <Column flexGrow={1}>
-                                                            <HeaderCell className="text-capitalize">Action</HeaderCell>
-                                                            <Cell dataKey="action"/>
+                                                        <Column flexGrow={1} verticalAlign="middle">
+                                                            <HeaderCell className="text-capitalize">Aksi</HeaderCell>
+                                                            <Cell className="pr-2">
+                                                                <ButtonToolbar  className="mb-1">
+                                                                    <Button color="yellow" size="xs" className="text-dark" block>Ubah</Button>
+                                                                </ButtonToolbar>
+                                                                <ButtonToolbar  >
+                                                                    <Button color="red" size="xs" block>Hapus</Button>
+                                                                </ButtonToolbar>
+
+                                                            </Cell>
                                                         </Column>
         
                                                     </Table>

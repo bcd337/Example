@@ -1,18 +1,17 @@
 import React from 'react'
+import {Route, Switch, Router} from "react-router-dom"
+
 import Home from './Home'
 import Sidebar from './Sidebar'
 import Data from './Data'
 import Login from './Login'
 import Register from './Register'
 import ForgotPassword from './ForgotPassword'
-import {Route, Switch, Router} from "react-router-dom"
 import LoginRoute from './Route'
 import history from "./history"
 import Region from './Region'
 import Commodity from './Commodity'
 import News from './News'
-
-import IqbalApp from './IqbalApp'
 
 const router = () => { 
 
@@ -59,10 +58,6 @@ const router = () => {
                             </div>
                             
                         </div>
-                    </Route>
-
-                    <Route path={"iqbal"}>
-                        <IqbalApp/>
                     </Route>
                 </Switch>
             
